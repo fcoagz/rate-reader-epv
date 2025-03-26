@@ -1,8 +1,15 @@
 import os
 import pytesseract
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configure Tesseract path
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+tesseract_path = os.getenv('TESSERACT_PATH')
+if tesseract_path:
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
+else:
+    print("TESSERACT_PATH environment variable not set")
 
 # Expected platforms and currencies
 EXPECTED_PLATFORMS = [
