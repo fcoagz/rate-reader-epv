@@ -21,6 +21,8 @@ docker run -d -p 14924:14924 --name rate_reader rate-reader-epv
 
 ## Endpoints
 
+### `GET /api/docs`
+
 ### `POST /api/reader`
 
 Procesa imágenes de reportes cambiarios y devuelve datos estructurados.
