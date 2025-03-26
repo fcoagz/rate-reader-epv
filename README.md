@@ -4,11 +4,10 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![OCR](https://img.shields.io/badge/OCR-4285F4?style=for-the-badge&logo=tesseract&logoColor=white)
 
-API de procesamiento de imágenes especializada en extracción de tasas de cambio del dólar paralelo en Venezuela, con soporte para inteligencia artificial y reconocimiento óptico de caracteres (OCR).
+API de procesamiento de imágenes diseñada para la identificación y extracción automatizada de tasas de cambio del dólar paralelo en Venezuela, mediante técnicas de:
 
-Se utilizo principalmente la librería [tesseract](https://github.com/tesseract-ocr/tesseract) para el reconocimiento de texto en imágenes.
-
-Adicionalmente se utiliza la API de Gemini para determinar la imagen principal y secundaria. (Opcional)
+- Reconocimiento Óptico de Caracteres (OCR) con implementación del motor [Tesseract](https://github.com/tesseract-ocr/tesseract)
+- AI con Gemini para validación y análisis contextual (opcional)
 
 ### Ejecución con Docker
 ```bash
@@ -25,7 +24,7 @@ docker run -d -p 14924:14924 --name rate_reader rate-reader-epv
 
 ### `POST /api/reader`
 
-Procesa imágenes de reportes cambiarios y devuelve datos estructurados.
+En este endpoint se envía una imagen de la tasa de cambio del dólar paralelo en Venezuela, y se obtiene la tasa de cambio en formato JSON.
 
 #### Request
 
