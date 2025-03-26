@@ -12,7 +12,7 @@ from utils import validate_image_content
 class OpenAIService(Agent):
     def __init__(self, **kwargs):
         super().__init__(
-            model=GeminiModel('gemini-2.0-flash', api_key=os.getenv('GROP_AI_TOKEN')),
+            model=GeminiModel('gemini-2.0-flash', api_key=os.getenv('GEMINI_AI_TOKEN')),
             result_type=ImageValidation,
             system_prompt=SYSTEM_PROMPT,
             **kwargs
