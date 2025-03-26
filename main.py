@@ -25,8 +25,8 @@ async def reader_img(data: ImageRequest):
             raise ValueError("Invalid type_img value")
 
         if not data.type_img or data.type_img not in ['image-1', 'image-2']:
-            if not os.getenv('GROP_AI_TOKEN'):
-                raise ValueError("GROP_AI_TOKEN is not defined")
+            if not os.getenv('GEMINI_AI_TOKEN'):
+                raise ValueError("GEMINI_AI_TOKEN is not defined")
 
             agent = OpenAIService()
             response = await agent.validate(data)
@@ -43,4 +43,4 @@ async def reader_img(data: ImageRequest):
         return ImageError(error=str(e)), HTTPStatus.BAD_REQUEST
 
 if __name__ == '__main__':
-    app.run(port=8000)
+    app.run(host='0.0.0.0', port=14924)
