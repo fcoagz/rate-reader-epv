@@ -1,0 +1,7 @@
+pytesseract==0.3.13
+pillow==11.1.0
+quart==0.20.0
+quart_schema==0.21.0
+pydantic==2.10.6
+pydantic-ai==0.0.44
+python-dotenv==1.1.0
