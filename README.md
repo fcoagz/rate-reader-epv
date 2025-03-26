@@ -8,6 +8,8 @@ API de procesamiento de imágenes especializada en extracción de tasas de cambi
 
 Se utilizo principalmente la librería [tesseract](https://github.com/tesseract-ocr/tesseract) para el reconocimiento de texto en imágenes.
 
+Adicionalmente se utiliza la API de Gemini para determinar la imagen principal y secundaria. (Opcional)
+
 ### Ejecución con Docker
 ```bash
 # Construir la imagen
