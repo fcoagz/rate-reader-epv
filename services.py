@@ -33,16 +33,17 @@ class OpenAIService(Agent):
 
 def get_image_content(type: str, image: Image.Image, boxes: list[tuple[int, int, int, int]]) -> list[dict]:
     content = []
-    for box in boxes:
+    for i, box in enumerate(boxes):
         cropped_image = image.crop(box)
-        cropped_image = cropped_image.convert('L')  # Convert to grayscale
+        cropped_image = cropped_image.convert('L')  # Convert to grayscale255, '1')  # Convert to black and white
         text = pytesseract.image_to_string(cropped_image, lang='eng', config='--psm 6 --oem 3')
 
         if type == 'image-1':
-            if not content and re.search(r'Bs\. \d{1,3}(,\d{3})*(\.\d{2})?', text):
+            match = re.search(r'\b\d{1,3}(?:\.\d{3})*(?:,\d{2})\b', text)
+            if i == 0 and match:
                 content.append({
                     'platform': '@EnParaleloVzla3',
-                    'rates': float(re.search(r'\d{1,3}(,\d{3})*(\.\d{2})?', text).group().replace(',', ''))
+                    'rates': float(match.group().replace(',', '.'))
                 })
             else:
                 rate = validate_image_content(text, EXPECTED_PLATFORMS)
