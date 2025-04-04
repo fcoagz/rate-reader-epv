@@ -33,6 +33,12 @@ def validate_image_content(content: str, expected_content: list[str] | None = No
                     'platform': closest[0],
                     'rate': rate
                 }
+            else:
+                # If no close match is found, return the original platform
+                return {
+                    'platform': platform,
+                    'rate': rate
+                }
         else:
             return {
                 'platform': platform,
