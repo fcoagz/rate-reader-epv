@@ -32,6 +32,8 @@ class OpenAIService(Agent):
             raise ValueError(f"Failed to create prompt result: {e}")
 
 def get_image_content(type: str, image: Image.Image, boxes: list[tuple[int, int, int, int]]) -> list[dict]:
+    image = image.resize((1080, 1080)) # Resize to 1080x1080
+
     content = []
     for i, box in enumerate(boxes):
         cropped_image = image.crop(box)
