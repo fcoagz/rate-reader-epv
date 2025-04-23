@@ -13,3 +13,6 @@ class ImageResponse(BaseModel):
 
 class ImageError(BaseModel):
     error: str = Field(..., description="The error message")
+
+class ExceptionResponse(BaseModel):
+    error: str = Field(..., description="The error message")
