@@ -1,6 +1,5 @@
 import re
 import difflib
-from PIL import Image
 
 def validate_image_content(content: str, expected_content: list[str] | None = None) -> dict:
     pattern = re.compile(
@@ -30,19 +29,20 @@ def validate_image_content(content: str, expected_content: list[str] | None = No
             closest = difflib.get_close_matches(platform, expected_content, n=1, cutoff=0.6)
             if closest:
                 return {
-                    'platform': closest[0],
-                    'rate': rate
+                    'name': closest[0],
+                    'price': rate
                 }
             else:
-                # If no close match is found, return the original platform
+                # Fallback to the original platform name if no close match is found
                 return {
-                    'platform': platform,
-                    'rate': rate
+                    'name': platform,
+                    'price': rate
                 }
-        else:
+        elif expected_content is None:
+            # If no expected content is provided, return the original platform name
             return {
-                'platform': platform,
-                'rate': rate
+                'name': platform,
+                'price': rate
             }
     
     return None
