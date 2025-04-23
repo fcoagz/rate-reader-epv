@@ -41,12 +41,12 @@ En este endpoint se envía una imagen de la tasa de cambio del dólar paralelo e
 {
   "content": [
     {
-      "platform": "@EnParaleloVzla3",
-      "rates": 95.60
+      "name": "@EnParaleloVzla3",
+      "price": 95.60
     },
     {
-      "platform": "@Yadio_io",
-      "rate": 92.5
+      "name": "@Yadio_io",
+      "price": 92.5
     },
     ...
   ]
